@@ -1,0 +1,241 @@
+/* Saaf Hawa - AQI Dashboard Styles */
+
+/* Import Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Custom CSS Variables */
+:root {
+	--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+	--card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	--border-radius: 12px;
+	--transition-speed: 0.3s;
+}
+
+/* Global Styles */
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+/* Main Container */
+.main-container {
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-radius: var(--border-radius);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	margin: 20px auto;
+	max-width: 1400px;
+}
+
+/* Header Styles */
+.app-header {
+	background: var(--primary-gradient);
+	color: white;
+	padding: 2rem 0;
+	text-align: center;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.app-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-tagline {
+	font-size: 1.2rem;
+	opacity: 0.9;
+	font-weight: 300;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+	padding: 2rem;
+}
+
+/* Card Styles */
+.card {
+	border: none;
+	border-radius: var(--border-radius);
+	box-shadow: var(--card-shadow);
+	transition: all var(--transition-speed) ease;
+	overflow: hidden;
+}
+
+.card:hover {
+	box-shadow: var(--card-hover-shadow);
+	transform: translateY(-2px);
+}
+
+.card-header {
+	background: rgba(0, 0, 0, 0.03);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	font-weight: 600;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 3px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	border-top-color: #fff;
+	animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+/* Status Indicators */
+.status-indicator {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 8px;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.main-container {
+		margin: 10px;
+		border-radius: 8px;
+	}
+	
+	.app-header {
+		padding: 1.5rem 0;
+	}
+	
+	.app-title {
+		font-size: 2rem;
+	}
+	
+	.app-tagline {
+		font-size: 1rem;
+	}
+	
+	.dashboard-content {
+		padding: 1rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.app-title {
+		font-size: 1.75rem;
+	}
+	
+	.app-tagline {
+		font-size: 0.9rem;
+	}
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+	width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #a8a8a8;
+}
+
+/* Animation Classes */
+.fade-in {
+	animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+	animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+	from { transform: translateX(-100%); }
+	to { transform: translateX(0); }
+}
+
+/* Utility Classes */
+.text-gradient {
+	background: var(--primary-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.glass-effect {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Styles */
+.app-footer {
+	background: #2c3e50;
+	color: white;
+	padding: 1.5rem 0;
+	text-align: center;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	margin-top: 2rem;
+}
+
+.footer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.footer-links {
+	margin-top: 1rem;
+}
+
+.footer-links a {
+	color: #bdc3c7;
+	text-decoration: none;
+	margin: 0 1rem;
+	transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+	color: white;
+}
+
+/* Print Styles */
+@media print {
+	.main-container {
+		box-shadow: none;
+		margin: 0;
+	}
+	
+	.app-header {
+		background: #667eea !important;
+		-webkit-print-color-adjust: exact;
+	}
+}
