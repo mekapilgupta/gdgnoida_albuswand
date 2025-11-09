@@ -1,4 +1,5 @@
-const OPENROUTER_API_KEY = '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';
+import { getOpenRouterApiKey } from '../utils/apiKeyManager.js';
+const OPENROUTER_API_KEY = getOpenRouterApiKey
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 const MODEL_ID = 'google/gemma-3n-e2b-it:free';
 
@@ -36,7 +37,7 @@ export async function getAqiInsights(aqiData) {
 		const response = await fetch(API_URL, {
 			method: 'POST',
 			headers: {
-				Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+				Authorization: `Bearer ${getOpenRouterApiKey()}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
